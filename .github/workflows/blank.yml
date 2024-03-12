@@ -51,8 +51,13 @@ jobs:
           git fetch origin gh-pages || git checkout -b gh-pages
           git reset --hard origin/gh-pages
           
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-app
+          
       - name: Deploy to Guthub Pages
-        uses: actions/upload-artifact@v3
+        uses: actions/deploy-pages@v1
         with:
           branch: gh-pages
           folder: ./dist      
