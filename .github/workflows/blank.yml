@@ -20,6 +20,7 @@ jobs:
 
       - name: Create .env file
         run: |
+          mkdir ./config
           echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
           echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
         
