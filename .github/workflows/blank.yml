@@ -5,7 +5,10 @@ name: CI/CD Workflow
 on:    
   - push
   - pull_request 
-
+  
+env:
+  GUTHUB_TOKEN: ${{ secrets.TOKEN_CODE }}
+  
 jobs:  
   build:    
     runs-on: ubuntu-latest    
@@ -34,7 +37,7 @@ jobs:
       #   run: docker build -t my-mongo .
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     if: ${{github.event_name == 'push'}}
     environment: production
     steps:
