@@ -33,7 +33,7 @@ jobs:
           echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
           echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
           
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v2
         with:
           name: my-app
           path: ./dist
@@ -56,7 +56,7 @@ jobs:
           git reset --hard origin/gh-pages
           
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: my-app         
           
