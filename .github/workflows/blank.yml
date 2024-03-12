@@ -46,7 +46,7 @@ jobs:
           git reset --hard origin/gh-pages
           
       - name: Deploy to Guthub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: actions/deploy-pages@v1
         with:
           branch: gh-pages
           folder: ./dist      
