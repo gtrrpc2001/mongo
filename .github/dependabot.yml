@@ -10,3 +10,29 @@ updates:
    directory: "/"
    schedule:
      interval: weekly
+
+ - package-ecosystem: "npm"
+   directory: "/"
+   schedule:
+     interval: daily
+   open-pull-requests: true
+   versioning-strategy: "bump-minor"
+ 
+ - package-ecosystem: "daily"
+   directory: "/"
+   schedule:
+     interval: daily
+   open-pull-requests: true
+   security-severity: "critical"
+
+workflows:
+  main:
+    name: "Main Workflow"
+    on:
+      - pull_request
+    jobs:
+      - job1:
+          runs-on: ubuntu-lastest
+          step:
+            - name: "Update dependencies"
+              uses: actions/dependabot/pull-request-review@v2
