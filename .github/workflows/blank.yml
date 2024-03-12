@@ -29,7 +29,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          mkdir ./config
+          mkdir -p ./config
           echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
           echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
           
@@ -66,7 +66,8 @@ jobs:
           name: my-app         
           
       - name: Deploy to Guthub Pages
-        uses: actions/deploy-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
+          github_token: ${{secrets.TOKEN_CODE}}
           branch: gh-pages
           folder: ./dist      
