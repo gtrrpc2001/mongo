@@ -7,6 +7,7 @@ on:
   - pull_request 
   
 env:
+  ACTIONS_ID_TOKEN_REQUEST_URL: https://api.github.com/actions/id-token-request
   GUTHUB_TOKEN: ${{ secrets.TOKEN_CODE }}
   
 jobs:  
