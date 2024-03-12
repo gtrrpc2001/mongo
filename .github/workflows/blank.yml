@@ -15,8 +15,8 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Build
-        run: npm build
+      - name: Build application
+        run: npm run build
         
       # - name: Run tests
       #   run: npm test
@@ -30,8 +30,14 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Create gh-pages branch if not exists
+        run: |
+          git fetch origin gh-pages || git checkout -b gh-pages
+          git reset --hard origin/gh-pages
+          
       - name: Deploy to Guthub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./build      
+          folder: ./dist      
