@@ -39,7 +39,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest    
     if: ${{github.event_name == 'push'}}
-    environment: production
+    environment: github-pages
     steps:
       - uses: actions/checkout@v3
       
