@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EcgController } from './controller/ecg.controller';
 import { EcgService } from './service/ecg.service';
 
-describe('AppController', () => {
+describe('EcgController', () => {
   let appController: EcgController;
 
   beforeEach(async () => {
