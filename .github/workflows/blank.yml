@@ -20,8 +20,8 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> .env
-          echo DBNAME=${{ secrets.DBNAME }} >> .env
+          echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
+          echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
         
       # - name: Run tests
       #   run: npm test
