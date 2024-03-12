@@ -3,9 +3,9 @@
 
 name: Nest.js CI
 
-env:
-  REGISTRY: ghcr.io
-  DOCKER_IMAGE: ${{github.repository}}  
+# env:
+#   REGISTRY: ghcr.io
+#   DOCKER_IMAGE: ${{github.repository}}  
 
 on:
   push:
