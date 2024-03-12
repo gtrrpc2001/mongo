@@ -16,11 +16,13 @@ jobs:
         run: npm install
         
       - name: Build application
-        run: npm run build
+        run: |
+          cd dist
+          npm run build
 
       - name: Create .env file
         run: |
-          mkdir ./config
+          echo ./config
           echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
           echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
         
