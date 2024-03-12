@@ -9,8 +9,8 @@ on:
   - pull_request 
   
 env:
-  ACTIONS_ID_TOKEN_REQUEST_URL: https://api.github.com/actions/id-token-request
-  GUTHUB_TOKEN: ${{ secrets.TOKEN_CODE }}
+  # ACTIONS_ID_TOKEN_REQUEST_URL: https://api.github.com/actions/id-token-request
+  GITHUB_TOKEN: ${{ secrets.TOKEN_CODE }}
   
 jobs:  
   build:    
@@ -52,8 +52,13 @@ jobs:
       
       - name: Create gh-pages branch if not exists
         run: |
-          git fetch origin gh-pages || git checkout -b gh-pages
-          git reset --hard origin/gh-pages
+          git fetch --all
+          if ! git branch -r | grep -q "origin/gh-pages"; then
+            git checkout -b gh-pages
+          else
+            git checkout gh-pages
+            git reset --hard origin/gh-pages
+          fi
           
       - name: Download artifact
         uses: actions/download-artifact@v2
