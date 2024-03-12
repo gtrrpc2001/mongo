@@ -32,7 +32,11 @@ jobs:
           mkdir ./config
           echo MONGODB_URL=${{ secrets.DEV_DATABASE_URL }} >> ./config/.env
           echo DBNAME=${{ secrets.DBNAME }} >> ./config/.env
-        
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-app
+          path: ./dist
       # - name: Run tests
       #   run: npm test
         
@@ -54,7 +58,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: my-app
+          name: my-app         
           
       - name: Deploy to Guthub Pages
         uses: actions/deploy-pages@v1
