@@ -17,6 +17,7 @@ jobs:
         
       - name: Build application
         run: |
+          mkdir -p ./dist
           cd dist
           npm run build
 
