@@ -61,7 +61,7 @@ jobs:
           name: my-app         
           
       - name: Deploy to Guthub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v3
         with:
           branch: gh-pages
           folder: ./dist      
